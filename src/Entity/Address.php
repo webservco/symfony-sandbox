@@ -15,6 +15,9 @@ class Address
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column]
+    private ?int $clientId = null;
+
     #[ORM\Column(length: 35)]
     private ?string $name = null;
 
@@ -151,6 +154,18 @@ class Address
     public function setTaxIdentification(?string $taxIdentification): static
     {
         $this->taxIdentification = $taxIdentification;
+
+        return $this;
+    }
+
+    public function getClientId(): ?int
+    {
+        return $this->clientId;
+    }
+
+    public function setClientId(int $clientId): static
+    {
+        $this->clientId = $clientId;
 
         return $this;
     }
