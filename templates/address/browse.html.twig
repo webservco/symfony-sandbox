@@ -1,0 +1,16 @@
+{%  extends 'base.html.twig' %}
+
+{% block title %}Addresses | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h2>Address list</h2>
+
+    <div>
+        {% for address in items %}
+            <div>
+                <h3>{{ address.name  }}</h3>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
