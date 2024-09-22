@@ -28,15 +28,11 @@ final class CreateController extends AbstractController
         if ($id === null) {
             throw new UnexpectedValueException('Id cannot be null.');
         }
-        $name = $address->getName();
-        if ($name === null) {
-            throw new UnexpectedValueException('Name cannot be null.');
-        }
 
         return new Response(
             sprintf(
                 'Created address "%s" with id "%d"',
-                $name,
+                $address->name,
                 $id,
             ),
         );
@@ -44,18 +40,18 @@ final class CreateController extends AbstractController
 
     private function createAddress(): Address
     {
-        $address = new Address();
-        $address->setClientId(117032);
-        $address->setName(sprintf('Test Name %d', time()));
-        $address->setAddress1('Test street 123');
-        $address->setAddress2('Line 2');
-        $address->setAddress3('Line 3');
-        $address->setCity('Milano');
-        $address->setPostalCode('20129');
-        $address->setState('MI');
-        $address->setCountry('IT');
-        $address->setTaxIdentification('TX123456');
-
-        return $address;
+        return new Address(
+            null,
+            117032,
+            sprintf('Test Name %d', time()),
+            'Test street 123',
+            'Line 2',
+            'Line 3',
+            'Milano',
+            '20129',
+            'MI',
+            'IT',
+            'TX123456',
+        );
     }
 }
