@@ -14,10 +14,7 @@ final class BrowseController extends AbstractController
     #[Route('address/browse', name: 'app_address_browse')]
     public function browse(AddressRepository $repository): Response
     {
-        $items = $repository->findBy(
-            [],
-            ['name' => 'DESC'],
-        );
+        $items = $repository->findAllCustom(null);
 
         return $this->render('address/browse.html.twig', ['items' => $items]);
     }
