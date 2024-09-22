@@ -5,17 +5,21 @@
 {% block body %}
     <h2>Address list</h2>
 
-    <div>
+    <div class="my-4">
         {% for address in items %}
-            <div>
-                <h3>
+            <ul>
+                <li class="py-2 border-b">
                     <a href="{{ path('app_address_show', {id: address.id}) }}">
                         {{ address.name }}
                     </a>
-                </h3>
-            </div>
-            <hr>
+                </li>
+            </ul>
         {% endfor %}
     </div>
-    <a href="{{ path('app_address_create') }}">Create</a>
+
+    <div class="my-4">
+        <a class="bg-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            href="{{ path('app_address_create') }}">Create</a>
+    </div>
+
 {% endblock %}
