@@ -6,7 +6,6 @@ namespace App\Repository;
 
 use App\Entity\Address;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -26,34 +25,18 @@ final class AddressRepository extends ServiceEntityRepository
      */
     public function findAllCustom(?string $nameSearch): array
     {
-        $queryBuilder = $this->createOrderedByQueryBuilder();
+        /**
+         * If QueryBuilder is not initialized here, PHPStan gives error:
+         * "Could not analyse QueryBuilder with unknown beginning."
+         */
+        $queryBuilder = $this->createQueryBuilder(self::QUERY_BUILDER_ALIAS)
+        ->orderBy('address.name', 'DESC');
 
         if ($nameSearch !== null) {
                $queryBuilder->andWhere('address.name LIKE :name')
                ->setParameter('name', "%{$nameSearch}%");
         }
 
-//                ->andWhere('a.exampleField = :val')
-//                ->setParameter('val', $value)
-//                ->orderBy('a.id', 'ASC')
-//                ->setMaxResults(10)
          return $queryBuilder->getQuery()->getResult();
-    }
-
-    //    public function findOneBySomeField($value): ?Address
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
-
-    private function createOrderedByQueryBuilder(?QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        $queryBuilder ??= $this->createQueryBuilder(self::QUERY_BUILDER_ALIAS);
-
-        return $queryBuilder->orderBy('address.name', 'DESC');
     }
 }

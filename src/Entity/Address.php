@@ -14,9 +14,12 @@ use function sprintf;
  * - constructor property promotion => can make nullable only what is actually needed.
  * - class can not be readonly since Doctrine needs to write the ID after object is created.
  * - id private and uses getter/setter.
+ *
+ * For Doctrine ORM classes can not be final
+ * @phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
  */
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
-final class Address
+class Address
 {
     /**
      * PHPMD: "Consider reducing the number of parameters to less than 10"
