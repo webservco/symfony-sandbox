@@ -7,6 +7,8 @@ namespace App\Entity;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+use function sprintf;
+
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 final class Address
 {
@@ -168,5 +170,23 @@ final class Address
         $this->clientId = $clientId;
 
         return $this;
+    }
+
+    public function getAllAddressLines(): string
+    {
+        if ($this->address1 === null) {
+            return '';
+        }
+
+        return sprintf(
+            '%s%s%s',
+            $this->address1,
+            $this->address2 !== null
+            ? sprintf(', %s', $this->address2)
+            : '',
+            $this->address3 !== null
+            ? sprintf(', %s', $this->address3)
+            : '',
+        );
     }
 }
