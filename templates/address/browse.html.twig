@@ -8,10 +8,14 @@
     <div>
         {% for address in items %}
             <div>
-                <h3>{{ address.name }}</h3>
-                <p>{{ address.allAddressLines }}</p>
+                <h3>
+                    <a href="{{ path('app_address_show', {id: address.id}) }}">
+                        {{ address.name }}
+                    </a>
+                </h3>
             </div>
             <hr>
         {% endfor %}
     </div>
+    <a href="{{ path('app_address_create') }}">Create</a>
 {% endblock %}
