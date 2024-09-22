@@ -27,6 +27,8 @@ final class EditController extends AbstractController
 
         $entityManager->flush();
 
+        $this->addFlash('success', 'The address has been edited.');
+
         return $this->redirectToRoute('app_address_show', ['id' => $address->getId()]);
     }
 }
