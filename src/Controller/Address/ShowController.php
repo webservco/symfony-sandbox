@@ -14,6 +14,12 @@ final class ShowController extends AbstractController
     #[Route('address/{id<\d+>}', name: 'app_address_show')]
     public function show(int $id, AddressRepository $repository): Response
     {
-        return $this->render('address/show.html.twig', ['item' => $repository->find($id)]);
+        $item = $repository->find($id);
+
+        if ($item === null) {
+            throw $this->createNotFoundException('Address not found.');
+        }
+
+        return $this->render('address/show.html.twig', ['item' => $item]);
     }
 }
