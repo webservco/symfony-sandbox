@@ -1,4 +1,4 @@
-{%  extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Addresses | {{ parent() }}{% endblock %}
 
@@ -8,7 +8,7 @@
     <div>
         {% for address in items %}
             <div>
-                <h3>{{ address.name  }}</h3>
+                <h3>{{ address.name }}</h3>
             </div>
             <hr>
         {% endfor %}
