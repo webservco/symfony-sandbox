@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Addresse | {{ parent() }}{% endblock %}
+{% block title %}Address | {{ parent() }}{% endblock %}
 
 {% block body %}
     <h2>{{ item.name }}</h2>
 
     <p>{{ item.allAddressLines }}</p>
+
+    <hr>
+
+    <form action="{{ path('app_address_edit', {id: item.id}) }}" method="post">
+        <input type="text" name="name" value="{{ item.name }}">
+        <button class="btn btn-outline-primary" name="submit" value="edit">
+            Submit
+        </button>
+    </form>
 
     <hr>
 
