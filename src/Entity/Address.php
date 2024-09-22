@@ -13,6 +13,7 @@ use function sprintf;
  * Attempt to make Doctrine ORM Entity usable.
  * - constructor property promotion => can make nullable only what is actually needed.
  * - class can not be readonly since Doctrine needs to write the ID after object is created.
+ * - properties can not be readonly is Entity is update-able.
  * - id private and uses getter/setter.
  *
  * For Doctrine ORM classes can not be final
@@ -33,25 +34,25 @@ class Address
         #[ORM\Id]
         private ?int $id,
         #[ORM\Column]
-        public readonly int $clientId,
+        public int $clientId,
         #[ORM\Column(length: 35)]
-        public readonly string $name,
+        public string $name,
         #[ORM\Column(length: 30)]
-        public readonly string $address1,
+        public string $address1,
         #[ORM\Column(length: 30, nullable: true)]
-        public readonly ?string $address2,
+        public ?string $address2,
         #[ORM\Column(length: 30, nullable: true)]
-        public readonly ?string $address3,
+        public ?string $address3,
         #[ORM\Column(length: 30)]
-        public readonly string $city,
+        public string $city,
         #[ORM\Column(length: 10, nullable: true)]
-        public readonly ?string $postalCode,
+        public ?string $postalCode,
         #[ORM\Column(length: 2, nullable: true)]
-        public readonly ?string $state,
+        public ?string $state,
         #[ORM\Column(length: 2)]
-        public readonly string $country,
+        public string $country,
         #[ORM\Column(length: 45, nullable: true)]
-        public readonly ?string $taxIdentification,
+        public ?string $taxIdentification,
     ) {
         $this->id = null;
     }
