@@ -6,6 +6,7 @@ namespace App\Entity;
 
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 use function sprintf;
 
@@ -22,6 +23,8 @@ use function sprintf;
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 class Address
 {
+    use TimestampableEntity;
+
     /**
      * PHPMD: "Consider reducing the number of parameters to less than 10"
      * OK, since DTO.
