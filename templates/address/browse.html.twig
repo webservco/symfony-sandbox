@@ -6,7 +6,7 @@
     <h2>Address list</h2>
 
     <div class="my-4">
-        {% for address in items %}
+        {% for address in pager %}
             <ul>
                 <li class="py-2 border-b">
                     <a href="{{ path('app_address_show', {id: address.id}) }}">
@@ -15,6 +15,10 @@
                 </li>
             </ul>
         {% endfor %}
+
+    </div>
+    <div class="my-4">
+        {{ pagerfanta(pager) }}
     </div>
 
     <div class="my-4">

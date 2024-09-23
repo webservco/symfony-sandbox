@@ -6,6 +6,7 @@ namespace App\Repository;
 
 use App\Entity\Address;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -20,23 +21,21 @@ final class AddressRepository extends ServiceEntityRepository
         parent::__construct($registry, Address::class);
     }
 
-    /**
-     * @return array<\App\Entity\Address> Returns an array of Address objects
-     */
-    public function findAllCustom(?string $nameSearch): array
+    public function findAllCustom(?string $nameSearch): QueryBuilder
     {
         /**
          * If QueryBuilder is not initialized here, PHPStan gives error:
          * "Could not analyse QueryBuilder with unknown beginning."
          */
         $queryBuilder = $this->createQueryBuilder(self::QUERY_BUILDER_ALIAS)
-        ->orderBy('address.name', 'DESC');
+            ->orderBy('address.name', 'DESC');
 
         if ($nameSearch !== null) {
-               $queryBuilder->andWhere('address.name LIKE :name')
-               ->setParameter('name', "%{$nameSearch}%");
+            $queryBuilder->andWhere('address.name LIKE :name')
+                ->setParameter('name', "%{$nameSearch}%");
         }
 
-         return $queryBuilder->getQuery()->getResult();
+        //return $queryBuilder->getQuery()->getResult();
+        return $queryBuilder;
     }
 }
