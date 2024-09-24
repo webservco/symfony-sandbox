@@ -4,21 +4,26 @@ declare(strict_types=1);
 
 namespace App\Controller\Address;
 
-use App\Entity\Address;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\AddressFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use UnexpectedValueException;
-
-use function sprintf;
-use function time;
 
 final class CreateController extends AbstractController
 {
     #[Route('address/create', name: 'app_address_create')]
-    public function create(EntityManagerInterface $entityManager): Response
+    public function create(/*EntityManagerInterface $entityManager*/): Response
     {
+        $form = $this->createForm(AddressFormType::class);
+
+        return $this->render(
+            'address/create.html.twig',
+            [
+                'addressForm' => $form->createView(),
+            ],
+        );
+
+        /*
         $address = $this->createAddress();
 
         $entityManager->persist($address);
@@ -35,10 +40,10 @@ final class CreateController extends AbstractController
                 $address->name,
                 $id,
             ),
-        );
+        );*/
     }
 
-    private function createAddress(): Address
+    /*private function createAddress(): Address
     {
         return new Address(
             null,
@@ -53,5 +58,5 @@ final class CreateController extends AbstractController
             'IT',
             'TX123456',
         );
-    }
+    }*/
 }
