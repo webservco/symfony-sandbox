@@ -5,32 +5,21 @@
 {% block body %}
     <h2>Address list</h2>
 
-    <turbo-frame id="address_browse_loop-{{ pager.currentPage }}" target="_top">
+    <div class="my-4">
+        {% for address in pager %}
+            <ul>
+                <li class="py-2 border-b">
+                    <a href="{{ path('app_address_show', {id: address.id}) }}">
+                        {{ address.name }}
+                    </a>
+                </li>
+            </ul>
+        {% endfor %}
 
-        <div class="my-4">
-            {% for address in pager %}
-                <ul>
-                    <li class="py-2 border-b">
-                        <a href="{{ path('app_address_show', {id: address.id}) }}">
-                            {{ address.name }}
-                        </a>
-                    </li>
-                </ul>
-            {% endfor %}
-
-        </div>
-        <div class="my-4">
-            {# {{ pagerfanta(pager) }}#}
-            {% if pager.hasNextPage %}
-                <turbo-frame
-                    id="address_browse_loop-{{ pager.nextPage }}"
-                    src="{{ pagerfanta_page_url(pager, pager.nextPage) }}"
-                    loading="lazy">
-                </turbo-frame>
-            {% endif %}
-        </div>
-
-    </turbo-frame>
+    </div>
+    <div class="my-4">
+        {{ pagerfanta(pager) }}
+    </div>
 
     <div class="my-4">
         <a class="bg-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
