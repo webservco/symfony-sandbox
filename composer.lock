@@ -9970,16 +9970,16 @@
         },
         {
             "name": "webservco/coding-standards",
-            "version": "v0.0.18",
+            "version": "v0.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webservco/coding-standards.git",
-                "reference": "0ecce9306cb5a91612b65f167493b3a763a131c8"
+                "reference": "0b48d6a9626f02f472ca6b92360c258403ccec5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webservco/coding-standards/zipball/0ecce9306cb5a91612b65f167493b3a763a131c8",
-                "reference": "0ecce9306cb5a91612b65f167493b3a763a131c8",
+                "url": "https://api.github.com/repos/webservco/coding-standards/zipball/0b48d6a9626f02f472ca6b92360c258403ccec5a",
+                "reference": "0b48d6a9626f02f472ca6b92360c258403ccec5a",
                 "shasum": ""
             },
             "require": {
@@ -10021,9 +10021,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webservco/coding-standards/issues",
-                "source": "https://github.com/webservco/coding-standards/tree/v0.0.18"
+                "source": "https://github.com/webservco/coding-standards/tree/v0.0.19"
             },
-            "time": "2024-09-22T18:12:20+00:00"
+            "time": "2024-09-24T09:57:25+00:00"
         },
         {
             "name": "zenstruck/assert",
