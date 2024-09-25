@@ -9,9 +9,11 @@
         {% for address in pager %}
             <ul>
                 <li class="py-2 border-b">
+                    {{ address.name }}
                     <a href="{{ path('app_address_show', {id: address.id}) }}">
-                        {{ address.name }}
+                        [edit name]
                     </a>
+                    <a href="{{ path('app_address_edit', {id: address.id}) }}">[edit full]</a>
                 </li>
             </ul>
         {% endfor %}

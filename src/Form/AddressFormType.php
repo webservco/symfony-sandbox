@@ -16,8 +16,14 @@ final class AddressFormType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('name')
-            ->add('address1');
+        $builder
+            ->add('clientId')
+            ->add('name')
+            ->add('address1')
+            ->add('city')
+            ->add('postalCode')
+            ->add('state')
+            ->add('country');
     }
     // @phpcs:enable
 }

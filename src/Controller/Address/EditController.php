@@ -12,12 +12,27 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use UnexpectedValueException;
 
+use function dd;
 use function is_string;
 
 final class EditController extends AbstractController
 {
-    #[Route('/address/edit/{id<\d+>}', name: 'app_address_edit', methods: ['POST'])]
-    public function edit(Address $address, EntityManagerInterface $entityManager, Request $request): Response
+    /**
+     * Complete edit using symfony forms
+     */
+    #[Route('/address/edit/{id<\d+>}', name: 'app_address_edit')]
+    public function edit(Address $address): Response
+    {
+        dd($address);
+        /** @todo */
+    }
+
+    /**
+     * Minimal edit without using symfony forms.
+     * Form is displayed in the show page.
+     */
+    #[Route('/address/edit_name/{id<\d+>}', name: 'app_address_edit_name', methods: ['POST'])]
+    public function editName(Address $address, EntityManagerInterface $entityManager, Request $request): Response
     {
         $name = $request->request->get('name');
         if (!is_string($name)) {
