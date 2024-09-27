@@ -35,6 +35,8 @@ final class CreateController extends AbstractController
                 throw new UnexpectedValueException('Id cannot be null.');
             }
 
+            $this->addFlash('success', 'Address was created.');
+
             return $this->redirectToRoute('app_address_browse');
         }
 
