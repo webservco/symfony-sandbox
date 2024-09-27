@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Form;
 
+use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class AddressFormType extends AbstractType
 {
@@ -26,4 +28,14 @@ final class AddressFormType extends AbstractType
             ->add('country');
     }
     // @phpcs:enable
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            /**
+             * Bind the form to the Address class (can be any php class)
+             * The form type guessing system will try to guess the form type for each field.
+             */
+            'data_class' => Address::class,
+        ]);
+    }
 }

@@ -25,40 +25,40 @@ class Address
 {
     use TimestampableEntity;
 
-    /**
-     * PHPMD: "Consider reducing the number of parameters to less than 10"
-     * OK, since DTO.
-     *
-     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
-     */
-    public function __construct(
-        #[ORM\Column]
-        #[ORM\GeneratedValue]
-        #[ORM\Id]
-        private ?int $id,
-        #[ORM\Column]
-        public int $clientId,
-        #[ORM\Column(length: 35)]
-        public string $name,
-        #[ORM\Column(length: 30)]
-        public string $address1,
-        #[ORM\Column(length: 30, nullable: true)]
-        public ?string $address2,
-        #[ORM\Column(length: 30, nullable: true)]
-        public ?string $address3,
-        #[ORM\Column(length: 30)]
-        public string $city,
-        #[ORM\Column(length: 10, nullable: true)]
-        public ?string $postalCode,
-        #[ORM\Column(length: 2, nullable: true)]
-        public ?string $state,
-        #[ORM\Column(length: 2)]
-        public string $country,
-        #[ORM\Column(length: 45, nullable: true)]
-        public ?string $taxIdentification,
-    ) {
-        $this->id = null;
-    }
+    #[ORM\Column]
+    #[ORM\GeneratedValue]
+    #[ORM\Id]
+    private ?int $id;
+
+    #[ORM\Column]
+    private int $clientId;
+
+    #[ORM\Column(length: 35)]
+    private string $name;
+
+    #[ORM\Column(length: 30)]
+    private string $address1;
+
+    #[ORM\Column(length: 30, nullable: true)]
+    private ?string $address2;
+
+    #[ORM\Column(length: 30, nullable: true)]
+    private ?string $address3;
+
+    #[ORM\Column(length: 30)]
+    private string $city;
+
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $postalCode;
+
+    #[ORM\Column(length: 2, nullable: true)]
+    private ?string $state;
+
+    #[ORM\Column(length: 2)]
+    private string $country;
+
+    #[ORM\Column(length: 45, nullable: true)]
+    private ?string $taxIdentification;
 
     public function getId(): ?int
     {
@@ -70,17 +70,117 @@ class Address
         $this->id = $id;
     }
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function getAddress1(): string
+    {
+        return $this->address1;
+    }
+
+    public function setAddress1(string $address1): void
+    {
+        $this->address1 = $address1;
+    }
+
+    public function getAddress2(): ?string
+    {
+        return $this->address2;
+    }
+
+    public function setAddress2(?string $address2): void
+    {
+        $this->address2 = $address2;
+    }
+
+    public function getAddress3(): ?string
+    {
+        return $this->address3;
+    }
+
+    public function setAddress3(?string $address3): void
+    {
+        $this->address3 = $address3;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): void
+    {
+        $this->city = $city;
+    }
+
+    public function getPostalCode(): ?string
+    {
+        return $this->postalCode;
+    }
+
+    public function setPostalCode(?string $postalCode): void
+    {
+        $this->postalCode = $postalCode;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(?string $state): void
+    {
+        $this->state = $state;
+    }
+
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
+    public function getTaxIdentification(): ?string
+    {
+        return $this->taxIdentification;
+    }
+
+    public function setTaxIdentification(?string $taxIdentification): void
+    {
+        $this->taxIdentification = $taxIdentification;
+    }
+
+    public function getClientId(): int
+    {
+        return $this->clientId;
+    }
+
+    public function setClientId(int $clientId): void
+    {
+        $this->clientId = $clientId;
+    }
+
     public function getAllAddressLines(): string
     {
         return sprintf(
             '%s%s%s',
             $this->address1,
             $this->address2 !== null
-            ? sprintf(', %s', $this->address2)
-            : '',
+                ? sprintf(', %s', $this->address2)
+                : '',
             $this->address3 !== null
-            ? sprintf(', %s', $this->address3)
-            : '',
+                ? sprintf(', %s', $this->address3)
+                : '',
         );
     }
 }

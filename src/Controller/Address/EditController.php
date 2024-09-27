@@ -38,7 +38,7 @@ final class EditController extends AbstractController
         if (!is_string($name)) {
             throw new UnexpectedValueException('Name must be a string');
         }
-        $address->name = $name;
+        $address->setName($name);
 
         $entityManager->flush();
 

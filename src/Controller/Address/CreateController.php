@@ -14,8 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use UnexpectedValueException;
 
-use function is_array;
-
 final class CreateController extends AbstractController
 {
     #[Route('address/create', name: 'app_address_create')]
@@ -50,24 +48,16 @@ final class CreateController extends AbstractController
 
     private function createAddress(FormInterface $form): Address
     {
-        $data = $form->getData();
+        /**
+         * When the form is bound to a class ("data_class"),
+         * `getData` returns an object of that class, otherwise an array.
+         */
+        $address = $form->getData();
 
-        if (!is_array($data)) {
-            throw new UnexpectedValueException('Form data is not an array.');
+        if (!$address instanceof Address) {
+            throw new UnexpectedValueException('Data is not an instance of Address.');
         }
 
-        return new Address(
-            null,
-            (int) $data['clientId'],
-            $data['name'],
-            $data['address1'],
-            null,
-            null,
-            $data['city'],
-            $data['postalCode'],
-            $data['state'],
-            $data['country'],
-            null,
-        );
+        return $address;
     }
 }
