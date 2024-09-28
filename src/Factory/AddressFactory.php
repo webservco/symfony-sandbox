@@ -42,7 +42,6 @@ final class AddressFactory extends PersistentProxyObjectFactory
             'city' => self::faker()->city(),
             'clientId' => self::faker()->randomNumber(),
             'country' => self::faker()->countryCode(),
-            'id' => null,
             'name' => self::faker()->text(35),
             'postalCode' => self::faker()->postcode(),
             'state' => null,
