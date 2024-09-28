@@ -7,8 +7,8 @@
 
     <div class="my-4">
         {% for address in pager %}
-            <ul>
-                <li class="py-2 border-b">
+            <ul class="list-group">
+                <li class="list-group-item">
                     {{ address.name }}
                     <a href="{{ path('app_address_show', {id: address.id}) }}">
                         [edit name]
@@ -24,7 +24,7 @@
     </div>
 
     <div class="my-4">
-        <a class="bg-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        <a
             href="{{ path('app_address_create') }}">Create</a>
     </div>
 

@@ -1,11 +1,16 @@
-<header class="bg-red-700 text-white shadow-lg">
-    <div class="container mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row justify-between items-center">
-        <h1 id="autoparts-hub" class="text-2xl md:text-3xl font-bold mb-4 md:mb-0">
-            <a href="#">App</a>
-        </h1>
-        <nav>
-            <a href="{{ path('app_address_browse') }}" class="hover:text-blue-300 mr-4">Addresses</a>
-            <a href="{{ path('app_address_create') }}" class="hover:text-blue-300 mr-4">Create address</a>
-        </nav>
+<header class="bg-dark text-white">
+    <div class="container py-3">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <h1 class="h3 mb-0">App</h1>
+            </div>
+            <div class="col-md-6">
+                <nav class="nav justify-content-md-end">
+                    <a class="nav-link text-white" href="{{ path('app_index') }}">Home</a>
+                    <a class="nav-link text-white" href="{{ path('app_address_browse') }}">Addresses</a>
+                    <a class="nav-link text-white" href="{{ path('app_address_create') }}">Create address</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
