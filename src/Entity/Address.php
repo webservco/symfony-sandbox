@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\AddressRepository;
@@ -37,6 +39,7 @@ class Address
     private int $clientId;
 
     #[ORM\Column(length: 35)]
+    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     private string $name;
 
     #[ORM\Column(length: 30)]
