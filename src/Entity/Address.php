@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -172,6 +173,7 @@ class Address
         $this->clientId = $clientId;
     }
 
+    #[ApiProperty(readable: false)]
     public function getAllAddressLines(): string
     {
         return sprintf(
