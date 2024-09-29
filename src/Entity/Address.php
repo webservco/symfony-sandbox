@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -20,6 +21,7 @@ use function sprintf;
  * For Doctrine ORM classes can not be final
  * @phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
  */
+#[ApiResource]
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 class Address
 {
