@@ -15,7 +15,7 @@ use function sprintf;
  * Attempt to make Doctrine ORM Entity usable.
  * - constructor property promotion => can make nullable only what is actually needed.
  * - class can not be readonly since Doctrine needs to write the ID after object is created.
- * - properties can not be readonly is Entity is update-able.
+ * - properties can not be readonly if Entity is update-able.
  * - id private and uses getter/setter.
  *
  * For Doctrine ORM classes can not be final
