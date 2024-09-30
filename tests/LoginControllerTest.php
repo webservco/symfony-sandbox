@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests;
 
 use App\Entity\User;
@@ -7,34 +9,11 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class LoginControllerTest extends WebTestCase
+use function assert;
+
+final class LoginControllerTest extends WebTestCase
 {
     private KernelBrowser $client;
-
-    protected function setUp(): void
-    {
-        $this->client = static::createClient();
-        $container = static::getContainer();
-        $em = $container->get('doctrine.orm.entity_manager');
-        $userRepository = $em->getRepository(User::class);
-
-        // Remove any existing users from the test database
-        foreach ($userRepository->findAll() as $user) {
-            $em->remove($user);
-        }
-
-        $em->flush();
-
-        // Create a User fixture
-        /** @var UserPasswordHasherInterface $passwordHasher */
-        $passwordHasher = $container->get('security.user_password_hasher');
-
-        $user = (new User())->setEmail('email@example.com');
-        $user->setPassword($passwordHasher->hashPassword($user, 'password'));
-
-        $em->persist($user);
-        $em->flush();
-    }
 
     public function testLogin(): void
     {
@@ -43,8 +22,8 @@ class LoginControllerTest extends WebTestCase
         self::assertResponseIsSuccessful();
 
         $this->client->submitForm('Sign in', [
-            '_username' => 'doesNotExist@example.com',
             '_password' => 'password',
+            '_username' => 'doesNotExist@example.com',
         ]);
 
         self::assertResponseRedirects('/login');
@@ -58,8 +37,8 @@ class LoginControllerTest extends WebTestCase
         self::assertResponseIsSuccessful();
 
         $this->client->submitForm('Sign in', [
-            '_username' => 'email@example.com',
             '_password' => 'bad-password',
+            '_username' => 'email@example.com',
         ]);
 
         self::assertResponseRedirects('/login');
@@ -70,8 +49,8 @@ class LoginControllerTest extends WebTestCase
 
         // Success - Login with valid credentials is allowed.
         $this->client->submitForm('Sign in', [
-            '_username' => 'email@example.com',
             '_password' => 'password',
+            '_username' => 'email@example.com',
         ]);
 
         self::assertResponseRedirects('/');
@@ -79,5 +58,29 @@ class LoginControllerTest extends WebTestCase
 
         self::assertSelectorNotExists('.alert-danger');
         self::assertResponseIsSuccessful();
+    }
+
+    protected function setUp(): void
+    {
+        $this->client = self::createClient();
+        $container = self::getContainer();
+        $em = $container->get('doctrine.orm.entity_manager');
+        $userRepository = $em->getRepository(User::class);
+
+        // Remove any existing users from the test database
+        foreach ($userRepository->findAll() as $user) {
+            $em->remove($user);
+        }
+
+        $em->flush();
+
+        $passwordHasher = $container->get('security.user_password_hasher');
+        assert($passwordHasher instanceof UserPasswordHasherInterface);
+
+        $user = (new User())->setEmail('email@example.com');
+        $user->setPassword($passwordHasher->hashPassword($user, 'password'));
+
+        $em->persist($user);
+        $em->flush();
     }
 }

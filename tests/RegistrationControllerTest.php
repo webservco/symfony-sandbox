@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Tests;
 
 use App\Repository\UserRepository;
@@ -8,28 +10,13 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class RegistrationControllerTest extends WebTestCase
+use function assert;
+use function preg_match;
+
+final class RegistrationControllerTest extends WebTestCase
 {
     private KernelBrowser $client;
     private UserRepository $userRepository;
-
-    protected function setUp(): void
-    {
-        $this->client = static::createClient();
-
-        // Ensure we have a clean database
-        $container = static::getContainer();
-
-        /** @var EntityManager $em */
-        $em = $container->get('doctrine')->getManager();
-        $this->userRepository = $container->get(UserRepository::class);
-
-        foreach ($this->userRepository->findAll() as $user) {
-            $em->remove($user);
-        }
-
-        $em->flush();
-    }
 
     public function testRegister(): void
     {
@@ -39,9 +26,9 @@ class RegistrationControllerTest extends WebTestCase
         self::assertPageTitleContains('Register');
 
         $this->client->submitForm('Register', [
+            'registration_form[agreeTerms]' => true,
             'registration_form[email]' => 'me@example.com',
             'registration_form[plainPassword]' => 'password',
-            'registration_form[agreeTerms]' => true,
         ]);
 
         // Ensure the response redirects after submitting the form, the user exists, and is not verified
@@ -63,9 +50,8 @@ class RegistrationControllerTest extends WebTestCase
         $this->client->followRedirect();
         $this->client->loginUser($user);
 
-        // Get the verification link from the email
-        /** @var TemplatedEmail $templatedEmail */
         $templatedEmail = $messages[0];
+        assert($templatedEmail instanceof TemplatedEmail);
         $messageBody = $templatedEmail->getHtmlBody();
         self::assertIsString($messageBody);
 
@@ -75,6 +61,24 @@ class RegistrationControllerTest extends WebTestCase
         $this->client->request('GET', $resetLink[1]);
         $this->client->followRedirect();
 
-        self::assertTrue(static::getContainer()->get(UserRepository::class)->findAll()[0]->isVerified());
+        self::assertTrue(self::getContainer()->get(UserRepository::class)->findAll()[0]->isVerified());
+    }
+
+    protected function setUp(): void
+    {
+        $this->client = self::createClient();
+
+        // Ensure we have a clean database
+        $container = self::getContainer();
+
+        $em = $container->get('doctrine')->getManager();
+        assert($em instanceof EntityManager);
+        $this->userRepository = $container->get(UserRepository::class);
+
+        foreach ($this->userRepository->findAll() as $user) {
+            $em->remove($user);
+        }
+
+        $em->flush();
     }
 }
