@@ -38,8 +38,8 @@ class Address
     #[ORM\Column]
     private int $clientId;
 
-    #[ORM\Column(length: 35)]
     #[ApiFilter(SearchFilter::class, strategy: 'partial')]
+    #[ORM\Column(length: 35)]
     private string $name;
 
     #[ORM\Column(length: 30)]
