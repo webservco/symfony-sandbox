@@ -18,6 +18,7 @@ final class RegistrationControllerTest extends WebTestCase
     private KernelBrowser $client;
     private UserRepository $userRepository;
 
+    // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function testRegister(): void
     {
         // Register a new user

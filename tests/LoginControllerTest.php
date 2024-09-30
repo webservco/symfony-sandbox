@@ -15,6 +15,7 @@ final class LoginControllerTest extends WebTestCase
 {
     private KernelBrowser $client;
 
+    // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function testLogin(): void
     {
         // Denied - Can't login with invalid email address.

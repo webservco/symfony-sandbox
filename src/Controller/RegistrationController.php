@@ -28,6 +28,7 @@ final class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
+    // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function register(
         Request $request,
         UserPasswordHasherInterface $userPasswordHasher,

@@ -30,6 +30,7 @@ final class AddressFormType extends AbstractType
             ->add('country');
     }
     // @phpcs:enable
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
