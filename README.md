@@ -4,7 +4,9 @@
 
 ## Development
 
-### TODO
-
+- /admin
+- /api
+- /login
+- /register
 
 ---
