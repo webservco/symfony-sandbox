@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
+use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,18 +45,19 @@ final class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('My Parcelvalue');
+            ->setTitle('Custom Admin');
     }
 
     /**
      * https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#main-menu
      *
      * @SuppressWarnings(PHPMD.StaticAccess)
-     * @return iterable<\EasyCorp\Bundle\EasyAdminBundle\Config\Menu\DashboardMenuItem>
+     * @return iterable<\EasyCorp\Bundle\EasyAdminBundle\Contracts\Menu\MenuItemInterface>
      */
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Addresses', 'fa fa-address-book', Address::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
