@@ -25,10 +25,15 @@ use function array_unique;
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+    // @phpcs:enable
+    // Please excuse the mess..
+    // @phpcs:disable SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing.IncorrectLinesCountBetweenAttributeAndTarget
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\Id]
+    // @phpcs:enable
+    // @phpstan-ignore doctrine.descriptorNotFound
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 180)]
@@ -47,10 +52,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private string $password;
 
     #[ORM\Column(length: 90)]
-    private ?string $email = null;
+    private string $email;
 
     #[ORM\Column]
     private bool $isVerified = false;
+
+    // Plain password (not persisted)
+    private ?string $plainPassword = null;
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
 
     public function getId(): ?Uuid
     {
@@ -150,4 +168,3 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 }
-// @phpcs:enable

@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class AddressFormType extends AbstractType
 {
     /**
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      * @phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
      * @param array<mixed> $options

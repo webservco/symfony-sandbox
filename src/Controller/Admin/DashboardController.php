@@ -50,6 +50,7 @@ final class DashboardController extends AbstractDashboardController
     /**
      * https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#main-menu
      *
+     * @SuppressWarnings(PHPMD.StaticAccess)
      * @return iterable<\EasyCorp\Bundle\EasyAdminBundle\Config\Menu\DashboardMenuItem>
      */
     public function configureMenuItems(): iterable
