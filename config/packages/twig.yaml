@@ -1,6 +1,9 @@
 twig:
     file_name_pattern: '*.twig'
     form_themes: ['bootstrap_5_layout.html.twig']
+    paths:
+        'templates/theme_tabler1': 'theme_tabler1'
+        'templates/theme_tabler2': 'theme_tabler2'
 
 when@test:
     twig:
