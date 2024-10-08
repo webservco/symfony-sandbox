@@ -30,5 +30,3 @@
 ---
 
 ## TODO
-
-- themes: `theme_tabler` and `theme_bootstrap`, switchable from twig config;
