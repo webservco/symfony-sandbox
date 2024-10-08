@@ -19,8 +19,8 @@
 
 ### Layout
 
-- Tabler: minimal test: /development/tabler/combo
-- Tabler: AI test (bad): /development/tabler/claudiu
+- /development/tabler/combo (Tabler: minimal test)
+- /development/tabler/claudiu (Tabler: AI test) 
 
 ### User
 
