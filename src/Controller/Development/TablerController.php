@@ -16,7 +16,7 @@ final class TablerController extends AbstractController
     #[Route('development/tabler/claudiu')]
     public function claudiu(): Response
     {
-        return $this->render('@theme_tabler2/development/tabler/claudiu.html.twig');;
+        return $this->render('@theme_tabler2/development/tabler/claudiu.html.twig');
     }
 
     /**
