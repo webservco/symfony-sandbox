@@ -16,3 +16,6 @@ import '@tabler/core';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+import moduleTest from './module_test/moduleTest.js';
+moduleTest('Test message');
