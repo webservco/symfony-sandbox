@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}I18n | {{ parent() }}{% endblock %}
+
+{% block body %}
+<p>{% trans %}test.home.title{% endtrans %}</p>
+
+<p>{{ title }}</p>
+
+<hr>
+
+<p>{{ message_translated }}</p>
+
+<p>{{ message_translatable|trans }}</p>
+{% endblock %}

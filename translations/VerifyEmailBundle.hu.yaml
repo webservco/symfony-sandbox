@@ -1,0 +1,5 @@
+'%count% year|%count% years': '%count% év'
+'%count% month|%count% months': '%count% hónap'
+'%count% day|%count% days': '%count% nap'
+'%count% hour|%count% hours': '%count% óra'
+'%count% minute|%count% minutes': '%count% perc'

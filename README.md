@@ -17,6 +17,11 @@
 
 - /api
 
+### I18n
+
+- /en/i18n
+- /hu/i18n
+
 ### Layout
 
 - /development/tabler/combo (Tabler: minimal test)

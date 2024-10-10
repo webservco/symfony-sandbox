@@ -1,0 +1,4 @@
+test:
+  home:
+    title: Hello World!
+    message: 'Welcome {name}'

@@ -1,0 +1,94 @@
+page_title.dashboard: Vezérlőpult
+page_title.detail: '%entity_label_singular% <small>(#%entity_short_id%)</small>'
+page_title.edit: '%entity_label_singular% szerkesztése'
+page_title.index: '%entity_label_plural%'
+page_title.new: 'Új %entity_label_singular% létrehozása'
+page_title.exception: Hiba|Hibák
+datagrid.hidden_results: 'Néhány találat nem megjeleníthető, mert nincs megfelelő jogosultsága'
+datagrid.no_results: 'Nincs találat.'
+paginator.first: Első
+paginator.previous: Előző
+paginator.next: Következő
+paginator.last: Utolsó
+paginator.counter: '<strong>%start%</strong> - <strong>%end%</strong> / <strong>%results%</strong>'
+paginator.results: '{0} Nincs találat|[1,Inf] <strong>%count%</strong> találat'
+label.true: Igen
+label.false: Nem
+label.empty: 'Üresen hagy'
+label.null: 'Nincs beállítva'
+label.object: 'PHP objektum'
+label.inaccessible: Elérhetetlen
+label.inaccessible.explanation: 'A getter metódus nem létezik ehhez a mezőhöz vagy a tulajdonság nem publikus.'
+label.form.empty_value: Nincs
+field.code_editor.view_code: 'Kód megtekintése'
+field.text_editor.view_content: 'Tartalom megtekintése'
+action.entity_actions: Műveletek
+action.new: 'Új %entity_label_singular% létrehozása'
+action.search: Keresés
+action.detail: Megtekintés
+action.edit: Szerkesztés
+action.delete: Törlés
+action.cancel: Mégsem
+action.index: 'Vissza a listához'
+action.deselect: 'Kiválasztás megszüntetése'
+action.add_new_item: 'Új elem létrehozása'
+action.remove_item: 'Elem eltávolítása'
+action.choose_file: 'Fájl kiválasztása'
+action.close: Bezárás
+action.create: Létrehozás
+action.create_and_add_another: 'Létrehozás és új hozzáadása'
+action.create_and_continue: 'Létrehozás és szerkesztés'
+action.save: Mentés
+action.save_and_continue: 'Mentés és szerkesztés'
+batch_action_modal.title: 'Valóban módosítja a kiválasztott elemeket?'
+batch_action_modal.content: 'Nincs lehetőség a művelet visszavonására'
+batch_action_modal.action: Folytatás
+delete_modal.title: 'Biztos benne, hogy törli ezt az elemet?'
+delete_modal.content: 'Ez a művelet visszavonhatatlan.'
+filter.title: Szűrők
+filter.button.clear: Töröl
+filter.button.apply: Alkalmaz
+filter.label.is_equal_to: egyenlő
+filter.label.is_not_equal_to: 'nem egyenlő'
+filter.label.is_greater_than: nagyobb
+filter.label.is_greater_than_or_equal_to: 'nagyobb vagy egyenlő'
+filter.label.is_less_than: kisebb
+filter.label.is_less_than_or_equal_to: 'kisebb vagy egyenlő'
+filter.label.is_between: 'kettő között'
+filter.label.contains: tartalmazza
+filter.label.not_contains: 'nem tartalmazza'
+filter.label.starts_with: 'így kezdődik'
+filter.label.ends_with: 'így végződik'
+filter.label.exactly: pontosan
+filter.label.not_exactly: 'nem pontosan'
+filter.label.is_same: megyegyezik
+filter.label.is_not_same: 'nem egyezik meg'
+filter.label.is_after: korábbi
+filter.label.is_after_or_same: 'korábbi vagy egyezik'
+filter.label.is_before: későbbi
+filter.label.is_before_or_same: 'későbbi vagy egyezik'
+form.are_you_sure: 'A formon végzett módosítások nem lettek elmentve.'
+form.tab.error_badge_title: 'Érvénytelen mező|%count% érvénytelen mező'
+form.slug.confirm_text: 'Ha megváltoztatja, akkor elérhetetlenné válhatnak más oldalakon szereplő hivatkozások.'
+user.logged_in_as: 'Belépve mint'
+user.unnamed: 'Névtelen felhasználó'
+user.anonymous: 'Anonim felhasználó'
+user.sign_out: Kilépés
+user.exit_impersonation: 'Megszemélyesítés vége'
+settings.appearance.label: Megjelenés
+settings.appearance.light: Világos
+settings.appearance.dark: Sötét
+settings.appearance.auto: Automatikus
+settings.locale: Nyelv
+login_page.username: Felhasználónév
+login_page.password: Jelszó
+login_page.sign_in: Belépés
+login_page.forgot_password: 'Elfelejtette jelszavát?'
+login_page.remember_me: 'Emlékezzen rám'
+exception.entity_not_found: 'Ez az elem már nem elérhető.'
+exception.entity_remove: 'Ez az elem nem törölhető más kapcsolódó adatok miatt.'
+exception.forbidden_action: 'A kért művelet nem hajtható végre ezen az elemen.'
+exception.insufficient_entity_permission: 'Nincs megfelelő jogosultsága az elemhez.'
+autocomplete.no-results-found: 'Nincs találat'
+autocomplete.no-more-results: 'Nincs több találat'
+autocomplete.loading-more-results: Töltés…
