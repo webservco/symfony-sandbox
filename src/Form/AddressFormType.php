@@ -6,6 +6,7 @@ namespace App\Form;
 
 use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -26,9 +27,9 @@ final class AddressFormType extends AbstractType
             ->add('name')
             ->add('address1')
             ->add('city')
-            ->add('postalCode')
-            ->add('state')
-            ->add('country');
+            ->add('postalCode');
+        $this->handleState($builder);
+        $this->handleCountry($builder);
     }
     // @phpcs:enable
 
@@ -40,6 +41,31 @@ final class AddressFormType extends AbstractType
              * The form type guessing system will try to guess the form type for each field.
              */
             'data_class' => Address::class,
+        ]);
+    }
+
+    private function handleCountry(FormBuilderInterface $builder): FormBuilderInterface
+    {
+        return $builder->add('country', ChoiceType::class, [
+            'choices' => [
+                'France' => 'FR',
+                'Germany' => 'DE',
+                'Italy' => 'IT',
+                'Switzerland' => 'CH',
+            ],
+            'placeholder' => 'Choose a country',
+        ]);
+    }
+
+    private function handleState(FormBuilderInterface $builder): FormBuilderInterface
+    {
+        return $builder->add('state', ChoiceType::class, [
+            'choices' => [
+                'TODO populate based on country' => 'MI',
+            ],
+            'placeholder' => 'Choose a state',
+            // When specifying the type parameter, the form type guessing sys does nothing.
+            'required' => false,
         ]);
     }
 }
