@@ -22,6 +22,10 @@ final class AddressFormType extends AbstractType
     {
         $builder
             ->add('clientId', null, [
+                /* One way to validate. See Address entity attributes for another way.
+                 * 'constraints' => [
+                    new Length(exactly: 6, exactMessage: 'ID must be exactly {{ limit }} characters.'),
+                ],*/
                 'help' => 'PV Client ID',
             ])
             ->add('name')

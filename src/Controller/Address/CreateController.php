@@ -41,7 +41,14 @@ final class CreateController extends AbstractController
         return $this->render(
             'address/create.html.twig',
             [
-                'addressForm' => $form->createView(),
+                /**
+                 * Strange:
+                 * if using:
+                 * 'addressForm' => $form->createView(),
+                 * (from video tutorial? probably deprecated?)
+                 * then form errors are not displayed.
+                 */
+                'addressForm' => $form,
             ],
         );
     }

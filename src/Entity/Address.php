@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints\Length;
 
 use function sprintf;
 
@@ -35,6 +36,7 @@ class Address
     #[ORM\Id]
     private ?int $id;
 
+    #[Length(exactly: 6, exactMessage: 'ID must be exactly {{ limit }} characters.')]
     #[ORM\Column]
     private int $clientId;
 
