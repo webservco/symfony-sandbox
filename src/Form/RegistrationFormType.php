@@ -17,10 +17,11 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 final class RegistrationFormType extends AbstractType
 {
     /**
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      * @phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      * @phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
      * @param array<mixed> $options
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @suppress PhanUnusedPublicFinalMethodParameter
      */
     // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function buildForm(FormBuilderInterface $builder, array $options): void

@@ -13,6 +13,7 @@ final class AppFixtures extends Fixture
 {
     /**
      * @SuppressWarnings(PHPMD.StaticAccess)
+     * @suppress PhanTypeInvalidCallableArraySize (it is array OR callable, phan...)
      */
     // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function load(ObjectManager $manager): void

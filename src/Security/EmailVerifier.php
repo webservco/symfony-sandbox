@@ -39,6 +39,7 @@ final class EmailVerifier
     }
 
     /**
+     * @suppress PhanTypeInvalidThrowsIsInterface
      * @throws \SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface
      */
     public function handleEmailConfirmation(Request $request, User $user): void

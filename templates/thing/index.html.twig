@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} | Custom title{% endblock %}
+
+{% block body %}
+
+<h1 class="text-4xl">Hello World!</h1>
+
+    <p data-controller="hello"></p>
+
+    {{ include('main/_aside.html.twig') }}
+
+    <hr>
+
+    {% for thing in things %}
+
+    {{ include('main/_thing.html.twig') }}
+
+    {% endfor %}
+
+<div>
+    {# Throws error #}
+    {# {{ noexist }} #}
+</div>
+
+<hr>
+
+<div data-controller="test" class="transition-all overflow-hidden">
+    <h3>Stimulus test</h3>
+    <button data-action="test#close">Test</button>
+</div>
+
+{% endblock %}

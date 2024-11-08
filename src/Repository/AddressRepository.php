@@ -11,11 +11,15 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends \Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository<\App\Entity\Address>
+ * @suppress PhanRedefinedExtendedClass
  */
 final class AddressRepository extends ServiceEntityRepository
 {
     private const string QUERY_BUILDER_ALIAS = 'address';
 
+    /**
+     * @suppress PhanRedefinedClassReference
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Address::class);

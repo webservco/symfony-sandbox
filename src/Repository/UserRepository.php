@@ -15,9 +15,13 @@ use function sprintf;
 
 /**
  * @extends \Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository<\App\Entity\User>
+ * @suppress PhanRedefinedExtendedClass
  */
 final class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
+    /**
+     * @suppress PhanRedefinedClassReference
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);

@@ -19,6 +19,8 @@ final class EditController extends AbstractController
 {
     /**
      * Complete edit using symfony forms
+     *
+     * @suppress PhanPluginAlwaysReturnMethod (correct, however this functionality is abandoned..)
      */
     #[Route('/address/edit/{id<\d+>}', name: 'app_address_edit')]
     public function edit(Address $address): Response

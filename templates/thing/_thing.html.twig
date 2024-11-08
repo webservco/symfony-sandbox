@@ -1,0 +1,15 @@
+<hr>
+<div>
+
+    <p>
+        <a href="{{ path('app_thing_show', {id: thing.id}) }}">
+            {{ thing.name|upper }}
+        </a>
+    </p>
+    <p>
+        {{ thing.description }}
+    </p>
+    <p>
+        {{ thing.type.value }}
+    </p>
+</div>

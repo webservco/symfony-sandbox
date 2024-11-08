@@ -111,7 +111,7 @@
             "@auto-scripts"
         ],
         "check:lint": "vendor/bin/parallel-lint bin config public src tests",
-        "check:phan": "vendor/bin/phan --config-file vendor/webservco/coding-standards/phan/config.php",
+        "check:phan": "vendor/bin/phan --config-file .phan/config.php",
         "check:phpcs": "vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php,./tests/bootstrap.php",
         "check:phpmd": "vendor/bin/phpmd bin,config,public,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml",
         "check:phpstan": "vendor/bin/phpstan analyse bin config public src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan-symfony-doctrine.neon --level=max",
@@ -123,6 +123,7 @@
             "@check:twig",
             "@check:phpstan",
             "@check:phpmd",
+            "@check:phan",
             "@check:psalm"
         ],
         "fix:phpcs": "vendor/bin/phpcbf --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php,./tests/bootstrap.php",

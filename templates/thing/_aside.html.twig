@@ -1,0 +1,21 @@
+<aside>
+    <div>
+        <p>
+            Dynamic {{ key }}.
+
+        </p>
+
+        <p>
+            Total x 100: {{ things|length * 100 }}.
+        </p>
+
+        <p>
+            Total: {{ things|length }}.
+        </p>
+
+        {# This is a comment #}
+        {% if things|length >= 1 %}
+            <p>Total is over 1.</p>
+        {% endif %}
+    </div>
+</aside>
