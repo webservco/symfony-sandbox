@@ -1,4 +1,4 @@
-# parcelvalue-v4/my-parcelvalue
+# symfony/sandbox
 
 ---
 
@@ -35,3 +35,5 @@
 ---
 
 ## TODO
+
+- psalm: solve errors;
