@@ -10,6 +10,11 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * extends is for psalm: https://github.com/psalm/psalm-plugin-symfony/issues/294
+ *
+ * @extends \Symfony\Component\Form\AbstractType<\App\Entity\Address>
+ */
 final class AddressFormType extends AbstractType
 {
     /**

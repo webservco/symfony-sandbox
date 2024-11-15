@@ -14,6 +14,11 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * extends is for psalm: https://github.com/psalm/psalm-plugin-symfony/issues/294
+ *
+ * @extends \Symfony\Component\Form\AbstractType<\App\Entity\User>
+ */
 final class RegistrationFormType extends AbstractType
 {
     /**

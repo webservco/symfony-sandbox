@@ -22,7 +22,7 @@ final class MainController extends AbstractController
             'thing/index.html.twig',
             [
                 'key' => 'value',
-                'thing' => $all[array_rand($all, 1)],
+                'thing' => $all !== [] ? $all[array_rand($all, 1)] : null,
                 'things' => $all,
                 'totalStuff' => $repository->getTotal(),
             ],
