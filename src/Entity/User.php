@@ -60,6 +60,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     // Plain password (not persisted)
     private ?string $plainPassword = null;
 
+    /**
+     * Constructor allegedly not actually used by Doctrine.
+     * Here in order to avoid Psalm "MissingConstructor" errors.
+     * Other option: make properties nullable (but then incorrect database structure).
+     */
+    public function __construct()
+    {
+        $this->email = '';
+        $this->password = '';
+        $this->username = '';
+    }
+
     public function getPlainPassword(): ?string
     {
         return $this->plainPassword;

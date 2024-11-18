@@ -68,6 +68,26 @@ class Address
     #[ORM\Column(length: 45, nullable: true)]
     private ?string $taxIdentification;
 
+    /**
+     * Constructor allegedly not actually used by Doctrine.
+     * Here in order to avoid Psalm "MissingConstructor" errors.
+     * Other option: make properties nullable (but then incorrect database structure).
+     */
+    public function __construct()
+    {
+        $this->address1 = '';
+        $this->address2 = '';
+        $this->address3 = '';
+        $this->city = '';
+        $this->clientId = 0;
+        $this->country = '';
+        $this->id = null;
+        $this->name = '';
+        $this->postalCode = '';
+        $this->state = '';
+        $this->taxIdentification = '';
+    }
+
     public function getId(): ?int
     {
         return $this->id;
