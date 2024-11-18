@@ -33,7 +33,3 @@
 - /register
 
 ---
-
-## TODO
-
-- psalm: solve errors;
