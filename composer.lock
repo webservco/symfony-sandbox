@@ -13479,16 +13479,16 @@
         },
         {
             "name": "webservco/coding-standards",
-            "version": "v0.0.30",
+            "version": "v0.0.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webservco/coding-standards.git",
-                "reference": "8138189a6b52f9c9ce8c7ab203ad62f3360211d5"
+                "reference": "b6f08b1cee23a623885dc96cfd1cc5c79617da4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webservco/coding-standards/zipball/8138189a6b52f9c9ce8c7ab203ad62f3360211d5",
-                "reference": "8138189a6b52f9c9ce8c7ab203ad62f3360211d5",
+                "url": "https://api.github.com/repos/webservco/coding-standards/zipball/b6f08b1cee23a623885dc96cfd1cc5c79617da4b",
+                "reference": "b6f08b1cee23a623885dc96cfd1cc5c79617da4b",
                 "shasum": ""
             },
             "require": {
@@ -13532,9 +13532,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webservco/coding-standards/issues",
-                "source": "https://github.com/webservco/coding-standards/tree/v0.0.30"
+                "source": "https://github.com/webservco/coding-standards/tree/v0.0.40"
             },
-            "time": "2024-11-15T14:39:34+00:00"
+            "time": "2024-11-18T16:44:40+00:00"
         },
         {
             "name": "weirdan/doctrine-psalm-plugin",
