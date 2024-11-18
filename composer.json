@@ -114,7 +114,7 @@
         ],
         "check:lint": "vendor/bin/parallel-lint bin config public src tests",
         "check:phan": "vendor/bin/phan --config-file vendor/webservco/coding-standards/phan/config.php",
-        "check:phpcs": "vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php,./tests/bootstrap.php",
+        "check:phpcs": "vendor/bin/phpcs --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php",
         "check:phpmd": "vendor/bin/phpmd bin,config,public,src,tests json vendor/webservco/coding-standards/phpmd/phpmd-rule-set.xml",
         "check:phpstan": "vendor/bin/phpstan analyse bin config public src tests --ansi -c vendor/webservco/coding-standards/phpstan/phpstan-symfony-doctrine.neon --level=max",
         "check:psalm": "vendor/bin/psalm --config=vendor/webservco/coding-standards/psalm/psalm-symfony-doctrine.xml --no-diff",
@@ -128,7 +128,7 @@
             "@check:psalm",
             "@check:phan"
         ],
-        "fix:phpcs": "vendor/bin/phpcbf --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php,./tests/bootstrap.php",
+        "fix:phpcs": "vendor/bin/phpcbf --standard=.phpcs/php-coding-standard.xml --extensions=php -sp bin config public src tests --ignore=./config/bundles.php",
         "fix:twig": "vendor/bin/twig-cs-fixer lint templates --fix",
         "test" : "XDEBUG_MODE=coverage vendor/bin/phpunit --colors=always --configuration vendor/webservco/coding-standards/phpunit/phpunit-10.xml --display-deprecations --display-errors --display-incomplete --display-notices --display-skipped --display-warnings",
         "test:dox" : "@test --testdox"
