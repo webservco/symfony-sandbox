@@ -1,5 +1,6 @@
 ###> custom
 /.idea/
+composer.lock
 ###< custom
 
 ###> symfony/framework-bundle ###
