@@ -18,6 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 final class AddressFormType extends AbstractType
 {
     /**
+     * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
      * @phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      * @phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
      * @param array<mixed> $options
@@ -54,6 +55,10 @@ final class AddressFormType extends AbstractType
         ]);
     }
 
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
+     * @return \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
+     */
     private function handleCountry(FormBuilderInterface $builder): FormBuilderInterface
     {
         return $builder->add('country', ChoiceType::class, [
@@ -67,6 +72,10 @@ final class AddressFormType extends AbstractType
         ]);
     }
 
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
+     * @return \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
+     */
     private function handleState(FormBuilderInterface $builder): FormBuilderInterface
     {
         return $builder->add('state', ChoiceType::class, [

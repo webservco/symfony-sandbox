@@ -11,6 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
+use UnexpectedValueException;
 
 use function array_unique;
 
@@ -106,6 +107,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
+        if ($this->username === '') {
+            throw new UnexpectedValueException('Username is empty.');
+        }
+
         return $this->username;
     }
 

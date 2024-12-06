@@ -53,6 +53,9 @@ final class CreateController extends AbstractController
         );
     }
 
+    /**
+     * @param \Symfony\Component\Form\FormInterface<\App\Entity\Address|null> $form
+     */
     private function createAddress(FormInterface $form): Address
     {
         /**
