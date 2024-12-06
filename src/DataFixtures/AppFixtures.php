@@ -12,7 +12,7 @@ use Doctrine\Persistence\ObjectManager;
 final class AppFixtures extends Fixture
 {
     /**
-     * @SuppressWarnings(PHPMD.StaticAccess)
+     * @SuppressWarnings("PHPMD.StaticAccess")
      * @suppress PhanTypeInvalidCallableArraySize (it is array OR callable, phan...)
      */
     // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
