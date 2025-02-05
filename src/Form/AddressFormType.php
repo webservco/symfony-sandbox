@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * extends is for psalm: https://github.com/psalm/psalm-plugin-symfony/issues/294
  *
- * @extends \Symfony\Component\Form\AbstractType<\App\Entity\Address>
+ * @extends \Symfony\Component\Form\AbstractType<\App\Entity\Address|null>
  */
 final class AddressFormType extends AbstractType
 {
@@ -56,8 +56,13 @@ final class AddressFormType extends AbstractType
     }
 
     /**
+     * Phan: PhanTypeMismatchReturnSuperType
+     * However no errors from phpstan and psalm.
+     *
+     * @todo study further
+     * @suppress PhanTypeMismatchReturnSuperType
      * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
-     * @return \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
+     * @return \Symfony\Component\Form\FormBuilderInterface&\Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
      */
     private function handleCountry(FormBuilderInterface $builder): FormBuilderInterface
     {
@@ -73,8 +78,13 @@ final class AddressFormType extends AbstractType
     }
 
     /**
+     * Phan: PhanTypeMismatchReturnSuperType
+     * However no errors from phpstan and psalm.
+     *
+     * @todo study further
+     * @suppress PhanTypeMismatchReturnSuperType
      * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
-     * @return \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
+     * @return \Symfony\Component\Form\FormBuilderInterface&\Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
      */
     private function handleState(FormBuilderInterface $builder): FormBuilderInterface
     {
