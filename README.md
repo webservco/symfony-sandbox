@@ -2,7 +2,7 @@
 
 ---
 
-## Development
+## Functionality
 
 ### Admin
 
