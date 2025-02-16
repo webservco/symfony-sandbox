@@ -67,7 +67,7 @@
         "symfony/web-profiler-bundle": "7.2.*",
         "vimeo/psalm": "^6",
         "vincentlanglet/twig-cs-fixer": "^3.1",
-        "webservco/coding-standards": "^0",
+        "webservco/coding-standards": "^1",
         "weirdan/doctrine-psalm-plugin": "^2",
         "zenstruck/foundry": "^2.0"
     },
