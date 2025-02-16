@@ -20,6 +20,7 @@ use function array_unique;
  *
  * For Doctrine ORM classes can not be final
  * @phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
+ * @psalm-suppress ClassMustBeFinal
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_USERNAME', fields: ['username'])]

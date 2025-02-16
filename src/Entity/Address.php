@@ -24,6 +24,7 @@ use function sprintf;
  *
  * For Doctrine ORM classes can not be final
  * @phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
+ * @psalm-suppress ClassMustBeFinal
  */
 #[ApiResource]
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
