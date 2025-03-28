@@ -23,13 +23,19 @@ return [
         'version' => '3.2.2',
     ],
     '@hotwired/turbo' => [
-        'version' => '8.0.10',
+        'version' => '8.0.13',
     ],
     '@tabler/core' => [
-        'version' => '1.0.0-beta21',
+        'version' => '1.1.1',
     ],
     '@tabler/core/dist/css/tabler.min.css' => [
-        'version' => '1.0.0-beta21',
+        'version' => '1.1.1',
         'type' => 'css',
+    ],
+    'autosize' => [
+        'version' => '6.0.1',
+    ],
+    'imask' => [
+        'version' => '7.6.1',
     ],
 ];
