@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Factory;
 
 use App\Entity\Address;
+use Override;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 use function substr;
@@ -24,6 +25,7 @@ final class AddressFactory extends PersistentProxyObjectFactory
         parent::__construct();
     }
 
+    #[Override]
     public static function class(): string
     {
         return Address::class;
@@ -34,6 +36,7 @@ final class AddressFactory extends PersistentProxyObjectFactory
      * @todo add your default values here
      * @return array<string,int|string|null>
      */
+    #[Override]
     protected function defaults(): array
     {
         return [
@@ -53,6 +56,7 @@ final class AddressFactory extends PersistentProxyObjectFactory
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
+    #[Override]
     protected function initialize(): static
     {
         return $this

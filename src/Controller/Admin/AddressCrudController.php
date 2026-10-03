@@ -6,9 +6,11 @@ namespace App\Controller\Admin;
 
 use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use Override;
 
 final class AddressCrudController extends AbstractCrudController
 {
+    #[Override]
     public static function getEntityFqcn(): string
     {
         return Address::class;

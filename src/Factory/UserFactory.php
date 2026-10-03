@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Factory;
 
 use App\Entity\User;
+use Override;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use UnexpectedValueException;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
@@ -21,6 +22,7 @@ final class UserFactory extends PersistentProxyObjectFactory
         // inject services if required (https://github.com/zenstruck/foundry#factories-as-services)
     }
 
+    #[Override]
     public static function class(): string
     {
         return User::class;
@@ -29,6 +31,7 @@ final class UserFactory extends PersistentProxyObjectFactory
     /**
      * @return array<string,array<string>|string>
      */
+    #[Override]
     protected function defaults(): array
     {
         return [
@@ -48,6 +51,7 @@ final class UserFactory extends PersistentProxyObjectFactory
      *
      * @psalm-suppress LessSpecificReturnStatement, MoreSpecificReturnType
      */
+    #[Override]
     protected function initialize(): static
     {
         // see https://github.com/zenstruck/foundry#initialization

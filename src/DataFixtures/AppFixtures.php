@@ -8,6 +8,7 @@ use App\Factory\AddressFactory;
 use App\Factory\UserFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Override;
 
 final class AppFixtures extends Fixture
 {
@@ -16,6 +17,7 @@ final class AppFixtures extends Fixture
      * @suppress PhanTypeInvalidCallableArraySize (it is array OR callable, phan...)
      */
     // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
+    #[Override]
     public function load(ObjectManager $manager): void
     {
         // Avoid "unused parameter" error.

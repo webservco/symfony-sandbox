@@ -8,6 +8,7 @@ use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Override;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -18,6 +19,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 final class DashboardController extends AbstractDashboardController
 {
     #[IsGranted('ROLE_ADMIN')]
+    #[Override]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -45,6 +47,7 @@ final class DashboardController extends AbstractDashboardController
     /**
      * https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#dashboard-configuration
      */
+    #[Override]
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
@@ -57,6 +60,7 @@ final class DashboardController extends AbstractDashboardController
      * @SuppressWarnings("PHPMD.StaticAccess")
      * @return iterable<\EasyCorp\Bundle\EasyAdminBundle\Contracts\Menu\MenuItemInterface>
      */
+    #[Override]
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
