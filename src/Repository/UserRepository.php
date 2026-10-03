@@ -34,14 +34,6 @@ final class UserRepository extends ServiceEntityRepository implements PasswordUp
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
         if (!$user instanceof User) {
-            /**
-             * "Parameter #2 ...$values of function sprintf expects bool|float|int|string|null, mixed given."
-             * Was not able to reproduce online:
-             * https://phpstan.org/r/b9c4e2d2-82b6-4ccc-bc52-6c43c1a87044
-             * Probably an error in symfony/doctrine phpstan implementation.
-             *
-             * @phpstan-ignore argument.type
-             */
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
         }
 

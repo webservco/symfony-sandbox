@@ -59,11 +59,7 @@ final class AddressFormType extends AbstractType
     }
 
     /**
-     * Phan: PhanTypeMismatchReturnSuperType
-     * However no errors from phpstan and psalm.
-     *
      * @todo study further
-     * @suppress PhanTypeMismatchReturnSuperType
      * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
      * @return \Symfony\Component\Form\FormBuilderInterface&\Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
      */
@@ -81,11 +77,7 @@ final class AddressFormType extends AbstractType
     }
 
     /**
-     * Phan: PhanTypeMismatchReturnSuperType
-     * However no errors from phpstan and psalm.
-     *
      * @todo study further
-     * @suppress PhanTypeMismatchReturnSuperType
      * @param \Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null> $builder
      * @return \Symfony\Component\Form\FormBuilderInterface&\Symfony\Component\Form\FormBuilderInterface<\App\Entity\Address|null>
      */
