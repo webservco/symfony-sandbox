@@ -29,8 +29,8 @@ final class RegistrationFormType extends AbstractType
      * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @suppress PhanUnusedPublicFinalMethodParameter
      */
-    // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     #[Override]
+    // @phpcs:ignore SlevomatCodingStandard.Functions.FunctionLength.FunctionLength
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
