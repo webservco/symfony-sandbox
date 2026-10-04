@@ -23,7 +23,6 @@ final class AddressFormType extends AbstractType
      * @phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
      * @phpcs:ignore SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint.DisallowedMixedTypeHint
      * @param array<mixed> $options
-     * @SuppressWarnings("PHPMD.UnusedFormalParameter")
      * @suppress PhanUnusedPublicFinalMethodParameter
      */
     #[Override]
