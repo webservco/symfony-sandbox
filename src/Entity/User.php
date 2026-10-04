@@ -36,7 +36,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\Id]
     // @phpcs:enable
-    // @phpstan-ignore doctrine.descriptorNotFound
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 180)]
@@ -145,7 +144,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @see PasswordAuthenticatedUserInterface
      */
     #[Override]
-    public function getPassword(): ?string
+    public function getPassword(): string
     {
         return $this->password;
     }

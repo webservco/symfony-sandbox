@@ -15,7 +15,6 @@ use function sprintf;
 
 /**
  * @extends \Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository<\App\Entity\User>
- * @implements \Symfony\Component\Security\Core\User\PasswordUpgraderInterface<\App\Entity\User>
  * @suppress PhanRedefinedExtendedClass
  */
 final class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface

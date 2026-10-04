@@ -48,8 +48,10 @@ final class UserFactory extends PersistentProxyObjectFactory
      * Psalm: "The type 'Zenstruck\Foundry\ObjectFactory<object>'
      * is more general than the declared return type 'App\Factory\UserFactory'"
      * However, can not change return type as method overrides parent method.
+     * UnusedPsalmSuppress: Psalm wrongly reports MoreSpecificReturnType as unused,
+     * but removing it brings the error back.
      *
-     * @psalm-suppress LessSpecificReturnStatement, MoreSpecificReturnType
+     * @psalm-suppress LessSpecificReturnStatement, MoreSpecificReturnType, UnusedPsalmSuppress
      */
     #[Override]
     protected function initialize(): static

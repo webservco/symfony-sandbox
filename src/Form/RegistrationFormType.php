@@ -38,24 +38,24 @@ final class RegistrationFormType extends AbstractType
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
+                    new IsTrue(
+                        message: 'You should agree to our terms.',
+                    ),
                 ],
                 'mapped' => false,
             ])
             ->add('plainPassword', PasswordType::class, [
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
+                    new NotBlank(
+                        message: 'Please enter a password',
+                    ),
+                    new Length(
                         // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                    ]),
+                        max: 4096,
+                        min: 6,
+                        minMessage: 'Your password should be at least {{ limit }} characters',
+                    ),
                 ],
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller

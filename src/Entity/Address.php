@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
-use ApiPlatform\Metadata\ApiFilter;
+use ApiPlatform\Doctrine\Orm\Filter\PartialSearchFilter;
 use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\QueryParameter;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
@@ -26,7 +26,11 @@ use function sprintf;
  * @phpcs:disable SlevomatCodingStandard.Classes.RequireAbstractOrFinal.ClassNeitherAbstractNorFinal
  * @psalm-suppress ClassMustBeFinal
  */
-#[ApiResource]
+#[ApiResource(
+    parameters: [
+        'name' => new QueryParameter(filter: new PartialSearchFilter(), property: 'name'),
+    ],
+)]
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 class Address
 {
@@ -41,7 +45,6 @@ class Address
     #[ORM\Column]
     private int $clientId;
 
-    #[ApiFilter(SearchFilter::class, strategy: 'partial')]
     #[ORM\Column(length: 35)]
     private string $name;
 

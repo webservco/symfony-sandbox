@@ -8,6 +8,9 @@ use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Override;
 
+/**
+ * @extends \EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController<\App\Entity\Address>
+ */
 final class AddressCrudController extends AbstractCrudController
 {
     #[Override]

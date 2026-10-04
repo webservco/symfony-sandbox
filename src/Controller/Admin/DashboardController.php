@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-use App\Entity\Address;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Override;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 final class DashboardController extends AbstractDashboardController
@@ -55,13 +54,15 @@ final class DashboardController extends AbstractDashboardController
      * https://symfony.com/bundles/EasyAdminBundle/current/dashboards.html#main-menu
      *
      * @SuppressWarnings("PHPMD.StaticAccess")
-     * @return iterable<\EasyCorp\Bundle\EasyAdminBundle\Contracts\Menu\MenuItemInterface>
+     * @return list<\EasyCorp\Bundle\EasyAdminBundle\Contracts\Menu\MenuItemInterface>
      */
     #[Override]
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Addresses', 'fa fa-address-book', Address::class);
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        return [
+            MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
+            MenuItem::linkTo(AddressCrudController::class, 'Addresses', 'fa fa-address-book'),
+            // MenuItem::linkTo(EntityCrudController::class, 'The Label', 'fas fa-list'),
+        ];
     }
 }
