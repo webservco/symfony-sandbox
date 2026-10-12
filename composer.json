@@ -1,6 +1,7 @@
 {
+    "description": "A Symfony sandbox project. Symfony 7.4 experiments in one app: Doctrine CRUD pages, an EasyAdmin dashboard, an API Platform API, registration and login, translations and Tabler layouts.",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
